@@ -2,8 +2,90 @@
 
 {% block content %}
 
-<h1>Cain thinks Hannah is Neat!</h1>
-<br/>
-{{ api }}
+{% if api %}
+    {% if api == "Error..." %}
+        There was an error loading the page. Please try again.
+    {% else %}
 
+        <h1>Air Quality Dashboard for {{ api.0.ReportingArea }}, {{ api.0.StateCode }} </h1>
+        <br/><br/>
+        
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Ozone</h4>
+            AQI: {{ api.0.AQI }}
+            <hr>
+            {% if api.0.Category.Number == 1 %}
+                <h4>{{ api.0.Category.Name }} (0 - 50)</h4>
+                <p>Air quality is satisfactory, and air pollution poses little or no risk.</p>
+            {%elif api.0.Category.Number == 2 %}
+                <h4>{{ api.0.Category.Name }} (51 - 100)</h4>
+                <p>Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.</p>
+            {%elif api.0.Category.Number == 3 %}
+                <h4>{{ api.0.Category.Name }} (101 - 200)</h4>
+                <p>Members of sensitive groups may experience health effects. The general public is less likely to be affected.</p>
+            {%elif api.0.Category.Number == 4 %}
+                <h4>{{ api.0.Category.Name }} (201 - 250)</h4>
+                <p>Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.</p>
+            {%elif api.0.Category.Number == 5 %}
+                <h4>{{ api.0.Category.Name }} (251 - 300)</h4>
+                <p>Health alert: The risk of health effects is increased for everyone.</p>
+            {%elif api.0.Category.Number == 6 %}
+                <h4>{{ api.0.Category.Name }} (301+)</h4>
+                <p>Health warning of emergency conditions: everyone is more likely to be affected.</p>
+            {% endif %}
+        </div>
+
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">PM 2.5</h4>
+            AQI: {{ api.1.AQI }}
+            <hr>
+            {% if api.1.Category.Number == 1 %}
+                <h4>{{ api.1.Category.Name }} (0 - 50)</h4>
+                <p>Air quality is satisfactory, and air pollution poses little or no risk.</p>
+            {%elif api.1.Category.Number == 2 %}
+                <h4>{{ api.1.Category.Name }} (51 - 100)</h4>
+                <p>Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.</p>
+            {%elif api.1.Category.Number == 3 %}
+                <h4>{{ api.1.Category.Name }} (101 - 200)</h4>
+                <p>Members of sensitive groups may experience health effects. The general public is less likely to be affected.</p>
+            {%elif api.1.Category.Number == 4 %}
+                <h4>{{ api.1.Category.Name }} (201 - 250)</h4>
+                <p>Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.</p>
+            {%elif api.1.Category.Number == 5 %}
+                <h4>{{ api.1.Category.Name }} (251 - 300)</h4>
+                <p>Health alert: The risk of health effects is increased for everyone.</p>
+            {%elif api.1.Category.Number == 6 %}
+                <h4>{{ api.1.Category.Name }} (301+)</h4>
+                <p>Health warning of emergency conditions: everyone is more likely to be affected.</p>
+            {% endif %}
+        </div>
+
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">PM 10</h4>
+            AQI: {{ api.2.AQI }}
+            <hr>
+            {% if api.2.Category.Number == 1 %}
+                <h4>{{ api.2.Category.Name }} (0 - 50)</h4>
+                <p>Air quality is satisfactory, and air pollution poses little or no risk.</p>
+            {%elif api.2.Category.Number == 2 %}
+                <h4>{{ api.2.Category.Name }} (51 - 100)</h4>
+                <p>Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.</p>
+            {%elif api.2.Category.Number == 3 %}
+                <h4>{{ api.2.Category.Name }} (101 - 200)</h4>
+                <p>Members of sensitive groups may experience health effects. The general public is less likely to be affected.</p>
+            {%elif api.2.Category.Number == 4 %}
+                <h4>{{ api.2.Category.Name }} (201 - 250)</h4>
+                <p>Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.</p>
+            {%elif api.2.Category.Number == 5 %}
+                <h4>{{ api.2.Category.Name }} (251 - 300)</h4>
+                <p>Health alert: The risk of health effects is increased for everyone.</p>
+            {%elif api.2.Category.Number == 6 %}
+                <h4>{{ api.2.Category.Name }} (301+)</h4>
+                <p>Health warning of emergency conditions: everyone is more likely to be affected.</p>
+            {% endif %}
+        </div>
+        <br/>
+    {% endif %}
+
+{% endif %}
 {% endblock %}
