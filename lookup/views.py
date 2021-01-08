@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-def home(request):
+def dashboard(request):
     import json
     import requests
     from uszipcode import SearchEngine, SimpleZipcode, Zipcode
@@ -314,8 +314,15 @@ def home(request):
         PM10_description = 'No Data'
         PM10_color = 'alert-dark'
 
-    return render(request, 'home.html', {'api': api, 'O3_aqi': O3_aqi, 'O3_name': O3_name, 'O3_description': O3_description, 'O3_color': O3_color, 'PM2_aqi': PM2_aqi, 'PM2_name': PM2_name, 'PM2_description': PM2_description, 'PM2_color': PM2_color, 'PM10_aqi': PM10_aqi, 'PM10_name': PM10_name, 'PM10_description': PM10_description, 'PM10_color': PM10_color})
+    return render(request, 'dashboard.html', {'api': api, 'O3_aqi': O3_aqi, 'O3_name': O3_name, 'O3_description': O3_description, 'O3_color': O3_color, 'PM2_aqi': PM2_aqi, 'PM2_name': PM2_name, 'PM2_description': PM2_description, 'PM2_color': PM2_color, 'PM10_aqi': PM10_aqi, 'PM10_name': PM10_name, 'PM10_description': PM10_description, 'PM10_color': PM10_color})
 
+
+
+    
+
+def home(request):
+    return render(request, 'home.html', {})
+    
 
 
 def about(request):
