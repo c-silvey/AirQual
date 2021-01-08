@@ -3,6 +3,7 @@ from django.shortcuts import render
 def home(request):
     import json
     import requests
+    from uszipcode import SearchEngine, SimpleZipcode, Zipcode
 
     if request.method == 'POST':
         zipcode = request.POST['zipsearch']
