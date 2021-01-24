@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if api %}
+    {% if api == "Error..." %}
+        There was an error loading the page. Please try again.
+    {% else %}
+
+        <h1>Air Quality Dashboard for {{ api.0.ReportingArea }}, {{ api.0.StateCode }} </h1>
+        <br/><br/>
+
+        <div class="alert {{ O3_color }}" role="alert">
+            <h4 class="alert-heading">Ozone</h4>
+            <p>AQI: {{ O3_aqi }}</p>
+            <hr>
+            <h4>{{ O3_name }}</h4>
+            <p>{{ O3_description }}</p>
+        </div>
+
+        <div class="alert {{ PM10_color }}" role="alert">
+            <h4 class="alert-heading">Particulate Matter (PM 10)</h4>
+            AQI: {{ PM10_aqi }}
+            <hr>
+            <h4>{{ PM10_name }}</h4>
+            <p>{{ PM10_description }}</p>
+        </div>
+
+        <div class="alert {{ PM2_color }}" role="alert">
+            <h4 class="alert-heading">Fine Particulate Matter (PM 2.5)</h4>
+            AQI: {{ PM2_aqi }}
+            <hr>
+            <h4>{{ PM2_name }}</h4>
+            <p>{{ PM2_description }}</p>
+        </div>
+        <br/>
+    {% endif %}
+
+{% endif %}
+{% endblock %}

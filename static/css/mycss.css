@@ -1,0 +1,6 @@
+.good {background-color:  #c8e6c9 ; border-color:  #6ea570; color:   #1b5e20   }
+.moderate {background-color: #fff59d; border-color:  #d4c430; color:   #7D6608  }
+.usg {background-color:   #ffcc80  ; border-color:   #ca8e49; color: #6e2c00  }
+.unhealthy {background-color:  #ff8a65 ; border-color:   #e62315; color:   #78281f   }
+.veryunhealthy {background-color:  #b796db ; border-color:  #844f8d; color:   #3e2442  }
+.hazardous {background-color:  #e57373 ; border-color:  #9b3535; color:  #660000 }
